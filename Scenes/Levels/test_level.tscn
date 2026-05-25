@@ -3,6 +3,9 @@
 [ext_resource type="AudioStream" uid="uid://dknaeqig3pv2g" path="res://Assets/Music/Scooby Doo! Creepy Run theme (HIGH QUALITY).mp3" id="1_b07c4"]
 [ext_resource type="PackedScene" uid="uid://di4b3fet5cvsw" path="res://Scenes/player.tscn" id="2_b07c4"]
 
+[sub_resource type="ViewportTexture" id="ViewportTexture_b07c4"]
+viewport_path = NodePath("SubViewport")
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_b07c4"]
 size = Vector2(1264, 304)
 
@@ -17,6 +20,9 @@ bus = &"Music"
 
 [node name="player" parent="." unique_id=2033633715 instance=ExtResource("2_b07c4")]
 position = Vector2(902, 438)
+
+[node name="Sprite2D" parent="player" index="1" unique_id=1676272654]
+texture = SubResource("ViewportTexture_b07c4")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1390569982]
 
