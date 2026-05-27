@@ -5,11 +5,21 @@ var idle_state: State
 @export
 var move_state: State
 
+func enter() -> void:
+	print("Fall state enter")
+
 func process_physics(delta: float) -> State:
 	parent.velocity.y += gravity * delta
 
 	var movement = Input.get_axis("move_left", "move_right") * move_speed
-
+	if movement != 0:
+		var target_rotation = PI/3 if movement > 0 else -PI/3
+		parent.player_model.rotation.y = lerp_angle(
+			parent.player_model.rotation.y,
+			target_rotation,
+			parent.rotation_speed * delta
+		)
+	
 	parent.velocity.x = movement
 	parent.move_and_slide()
 

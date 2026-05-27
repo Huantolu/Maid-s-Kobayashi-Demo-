@@ -6,11 +6,16 @@ var fall_state: State
 var idle_state: State
 @export
 var move_state: State
+@export
+var run_state: State
 
 @export
 var jump_force: float = 900.0
 
+
+
 func enter() -> void:
+	print("Jump state enter")
 	parent.velocity.y = -jump_force
 
 func process_physics(delta: float) -> State:
@@ -20,11 +25,18 @@ func process_physics(delta: float) -> State:
 		return fall_state
 
 	var movement = Input.get_axis("move_left", "move_right") * move_speed
-
+	if movement != 0:
+		var target_rotation = PI/3 if movement > 0 else -PI/3
+		parent.player_model.rotation.y = lerp_angle(
+			parent.player_model.rotation.y,
+			target_rotation,
+			parent.rotation_speed * delta
+		)
 	parent.velocity.x = movement
 	parent.move_and_slide()
 
 	if parent.is_on_floor():
+		parent.jumps_left = parent.TOTAL_JUMPS
 		if movement != 0:
 			return move_state
 		return idle_state

@@ -6,10 +6,18 @@ var fall_state: State
 var jump_state: State
 @export
 var move_state: State
+@export
+var run_state: State
+
 
 func enter() -> void:
 	super()
+	print("Idle state enter")
+	parent.jumps_left = parent.TOTAL_JUMPS
 	parent.velocity.x = 0
+
+
+
 
 func process_input(event: InputEvent) -> State:
 	if Input.is_action_just_pressed('jump') and parent.is_on_floor():
