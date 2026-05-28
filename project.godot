@@ -22,6 +22,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 Signal_Debugger="*uid://c0ayiwdm0sk6p"
+AudioController="*uid://du5eqkft84xqn"
 
 [display]
 

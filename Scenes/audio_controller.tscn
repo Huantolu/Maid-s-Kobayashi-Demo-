@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://du5eqkft84xqn"]
+
+[ext_resource type="AudioStream" uid="uid://dnqqm5p64hiom" path="res://Assets/Sound Effects/262893__kwahmah_02__videogame-jump.wav" id="1_btkaq"]
+[ext_resource type="Script" uid="uid://deocrncn1ldv6" path="res://Scenes/audio_controller.gd" id="1_t0xn5"]
+[ext_resource type="AudioStream" uid="uid://dknaeqig3pv2g" path="res://Assets/Music/Scooby Doo! Creepy Run theme (HIGH QUALITY).mp3" id="2_t0xn5"]
+[ext_resource type="AudioStream" uid="uid://3g1i34p3bj20" path="res://Assets/Music/what's that smell (sugary spire).mp3" id="4_nqcbu"]
+
+[node name="AudioController" type="Node2D" unique_id=1364822880]
+script = ExtResource("1_t0xn5")
+
+[node name="Jump" type="AudioStreamPlayer2D" parent="." unique_id=1338831925]
+stream = ExtResource("1_btkaq")
+volume_db = -8.0
+pitch_scale = 1.81
+bus = &"Sfx"
+
+[node name="Music_lvl_test" type="AudioStreamPlayer2D" parent="." unique_id=2048457371]
+stream = ExtResource("2_t0xn5")
+volume_db = -10.0
+bus = &"Music"
+
+[node name="Music_menu" type="AudioStreamPlayer2D" parent="." unique_id=381813479]
+stream = ExtResource("4_nqcbu")
+bus = &"Music"

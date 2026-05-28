@@ -4,6 +4,8 @@ extends State
 var idle_state: State
 @export
 var move_state: State
+@export
+var jump_state: State
 
 func enter() -> void:
 	print("Fall state enter")
@@ -21,9 +23,17 @@ func process_physics(delta: float) -> State:
 		)
 	
 	parent.velocity.x = movement
+	
+	if Input.is_action_just_pressed("jump") and parent.jumps_left > 0:
+		parent.jumps_left -= 1
+		print("Total jumps: " + str(parent.jumps_left))
+		AudioController.play_jump()
+		return jump_state
 	parent.move_and_slide()
+	
 
 	if parent.is_on_floor():
+		parent.jumps_left = parent.TOTAL_JUMPS
 		if movement != 0:
 			return move_state
 		return idle_state

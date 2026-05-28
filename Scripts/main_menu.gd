@@ -4,6 +4,7 @@ var level: int = 1
 @onready var test_sfx: AudioStreamPlayer2D = $AudioStreamPlayer2D
 
 func _ready() -> void:
+	AudioController.play_music_menu()
 	$CenterContainer/MainButtons/play.grab_focus()
 	$CenterContainer/SettingsMenu/fullscreen.button_pressed = true if DisplayServer.window_get_mode() == DisplayServer.WINDOW_MODE_EXCLUSIVE_FULLSCREEN else DisplayServer.WINDOW_MODE_WINDOWED
 	$CenterContainer/SettingsMenu/mainvoslider.value = db_to_linear(AudioServer.get_bus_volume_db(AudioServer.get_bus_index("Master")))

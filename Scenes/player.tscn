@@ -47,28 +47,30 @@ transform = Transform3D(0.7483309, 0, 0.6633257, 0, 1, 0, -0.6633257, 0, 0.74833
 [node name="state_machine" parent="." unique_id=286087432 node_paths=PackedStringArray("starting_state") instance=ExtResource("1_v0iea")]
 starting_state = NodePath("idle")
 
-[node name="idle" type="Node" parent="state_machine" unique_id=389988173 node_paths=PackedStringArray("fall_state", "jump_state", "move_state", "run_state")]
+[node name="idle" type="Node" parent="state_machine" unique_id=389988173 node_paths=PackedStringArray("fall_state", "jump_state", "move_state")]
 script = ExtResource("3_x3wgy")
 fall_state = NodePath("../fall")
 jump_state = NodePath("../jump")
 move_state = NodePath("../move")
-run_state = NodePath("")
 move_speed = 400.91
 
-[node name="jump" type="Node" parent="state_machine" unique_id=1266890664 node_paths=PackedStringArray("fall_state", "idle_state", "move_state", "run_state")]
+[node name="jump" type="Node" parent="state_machine" unique_id=1266890664 node_paths=PackedStringArray("fall_state", "idle_state", "move_state")]
 script = ExtResource("4_3smsa")
 fall_state = NodePath("../fall")
 idle_state = NodePath("../idle")
 move_state = NodePath("../move")
-run_state = NodePath("")
+move_speed = 350.0
 
-[node name="fall" type="Node" parent="state_machine" unique_id=14017587 node_paths=PackedStringArray("idle_state", "move_state")]
+[node name="fall" type="Node" parent="state_machine" unique_id=14017587 node_paths=PackedStringArray("idle_state", "move_state", "jump_state")]
 script = ExtResource("5_8erm5")
 idle_state = NodePath("../idle")
 move_state = NodePath("../move")
+jump_state = NodePath("../jump")
+move_speed = 350.0
 
 [node name="move" type="Node" parent="state_machine" unique_id=300475850 node_paths=PackedStringArray("fall_state", "idle_state", "jump_state")]
 script = ExtResource("6_f1ek2")
 fall_state = NodePath("../fall")
 idle_state = NodePath("../idle")
 jump_state = NodePath("../jump")
+move_speed = 350.0

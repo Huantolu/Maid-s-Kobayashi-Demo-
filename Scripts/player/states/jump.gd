@@ -16,6 +16,7 @@ var jump_force: float = 900.0
 
 func enter() -> void:
 	print("Jump state enter")
+	
 	parent.velocity.y = -jump_force
 
 func process_physics(delta: float) -> State:
@@ -33,8 +34,14 @@ func process_physics(delta: float) -> State:
 			parent.rotation_speed * delta
 		)
 	parent.velocity.x = movement
+	if Input.is_action_just_pressed("jump") and parent.jumps_left > 0:
+		AudioController.play_jump()
+		parent.velocity.y = -jump_force
+		parent.jumps_left -= 1
+		print("Total jumps: " + str(parent.jumps_left))
+	
 	parent.move_and_slide()
-
+	
 	if parent.is_on_floor():
 		parent.jumps_left = parent.TOTAL_JUMPS
 		if movement != 0:
