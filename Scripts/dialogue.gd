@@ -11,7 +11,7 @@ var _playing_voice := false
 # We are going to use this logic to test, will be removed later
 func _ready() -> void:
 	await(get_tree().create_timer(0.1).timeout)
-	update_message("Howdy!{p=0.5} I was generated for the dialogue system test...{p=0.5} for the godot game engine!")
+	update_message("It was hard to get these...I-I needed to do like a minigame, then there was a box to give it to that puppet and then...")
 
   
 
