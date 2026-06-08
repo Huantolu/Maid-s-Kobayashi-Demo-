@@ -7,13 +7,13 @@ var state_machine = $state_machine
 @onready var player_model: Node3D = $SubViewport/Sophia_Model
 var facing_direction := 1
 var jumps_left: int = 0
-@export
-var TOTAL_JUMPS: int = 2
-
+const TOTAL_JUMPS: int = 2
+@onready var arm_manager = $ArmManager
 
 
 func _ready() -> void:
 	state_machine.init(self)
+	arm_manager.setup(self)
 
 func _unhandled_input(event: InputEvent) -> void:
 	state_machine.process_input(event)
