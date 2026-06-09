@@ -10,15 +10,15 @@
 [node name="AudioController" type="Node" unique_id=53321031]
 script = ExtResource("1_t0xn5")
 
-[node name="Jump" type="AudioStreamPlayer2D" parent="." unique_id=1338831925]
+[node name="Jump" type="AudioStreamPlayer" parent="." unique_id=197486431]
 stream = ExtResource("1_btkaq")
-volume_db = -8.0
+volume_db = -23.191
 pitch_scale = 1.81
 bus = &"Sfx"
 
-[node name="Music_lvl_test" type="AudioStreamPlayer2D" parent="." unique_id=2048457371]
+[node name="Music_lvl_test" type="AudioStreamPlayer" parent="." unique_id=1229599020]
 stream = ExtResource("2_t0xn5")
-volume_db = -10.0
+volume_db = -25.0
 bus = &"Music"
 
 [node name="Music_menu" type="AudioStreamPlayer2D" parent="." unique_id=381813479]
