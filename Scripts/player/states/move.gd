@@ -27,7 +27,7 @@ func process_physics(delta: float) -> State:
 			target_rotation,
 			parent.rotation_speed * delta
 		)
-	if abs(movement) < 0.0:
+	if movement == 0:
 		return idle_state
 
 	parent.velocity.x = movement
