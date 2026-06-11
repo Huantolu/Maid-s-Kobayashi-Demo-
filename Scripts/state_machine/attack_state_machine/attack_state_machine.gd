@@ -12,6 +12,7 @@ func init(parent: Player) -> void:
 	for child in get_children():
 		child.parent = parent
 
+
 	# Initialize to the default state
 	change_state(starting_state)
 

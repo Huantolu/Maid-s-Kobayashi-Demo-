@@ -6,8 +6,7 @@ var fall_state: State
 var idle_state: State
 @export
 var move_state: State
-@export
-var run_state: State
+
 
 @export
 var jump_force: float = 900.0

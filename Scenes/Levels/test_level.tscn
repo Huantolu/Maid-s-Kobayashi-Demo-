@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://b1taedhr4oysk" path="res://test_level.gd" id="1_b07c4"]
 [ext_resource type="PackedScene" uid="uid://di4b3fet5cvsw" path="res://Scenes/player.tscn" id="2_b07c4"]
+[ext_resource type="Script" uid="uid://dhphcnju2oqqi" path="res://Scripts/state_machine/attack_state_machine/attack.gd" id="3_2ytpj"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_b07c4"]
 viewport_path = NodePath("SubViewport")
@@ -23,11 +24,21 @@ script = ExtResource("1_b07c4")
 [node name="player" parent="." unique_id=2033633715 instance=ExtResource("2_b07c4")]
 position = Vector2(176, 885)
 
-[node name="Sprite2D" parent="player" index="1" unique_id=1676272654]
+[node name="Sprite2D" parent="player" index="2" unique_id=1676272654]
 texture = SubResource("ViewportTexture_b07c4")
 
-[node name="jump" parent="player/state_machine" parent_id_path=PackedInt32Array(2033633715, 286087432) index="1" unique_id=1266890664]
+[node name="jump" parent="player/movement_state_machine" parent_id_path=PackedInt32Array(2033633715, 286087432) index="1" unique_id=1266890664]
 jump_force = 400.0
+
+[node name="attack_state_machine" parent="player" index="5" unique_id=1379061487 node_paths=PackedStringArray("starting_state")]
+starting_state = NodePath("idle")
+
+[node name="idle" parent="player/attack_state_machine" index="0" unique_id=1357840104 node_paths=PackedStringArray("attack_state")]
+attack_state = NodePath("../attack")
+
+[node name="attack" parent="player/attack_state_machine" index="1" unique_id=723437132 node_paths=PackedStringArray("idle_state")]
+script = ExtResource("3_2ytpj")
+idle_state = NodePath("../idle")
 
 [node name="Camera2D" type="Camera2D" parent="player" unique_id=493890255]
 position = Vector2(0, -72)
