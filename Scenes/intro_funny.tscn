@@ -2,6 +2,12 @@
 
 [ext_resource type="VideoStream" uid="uid://b276yjyufuaex" path="res://Funny_stuff/From_KlickPin_CF_Caballo_lore_Video_en_2025___Imagenes_graciosas_Humor_de_animales_Imagenes_divertid.ogv" id="1_e8l5q"]
 [ext_resource type="Script" uid="uid://dykobm2lxotyu" path="res://Scripts/intro_funny.gd" id="1_t4h2k"]
+[ext_resource type="FontFile" uid="uid://htx0b624ho05" path="res://Fonts/VCR_OSD_MONO_1.001.ttf" id="3_6vpmc"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_lqbnl"]
+font = ExtResource("3_6vpmc")
+font_size = 70
+font_color = Color(0, 0, 0, 1)
 
 [node name="intro_funny" type="Node2D" unique_id=51113132]
 script = ExtResource("1_t4h2k")
@@ -16,3 +22,12 @@ stream = ExtResource("1_e8l5q")
 autoplay = true
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=130683199]
+
+[node name="skip warning" type="Label" parent="." unique_id=1313885959]
+visible = false
+offset_left = -87.0
+offset_top = 419.0
+offset_right = 938.0
+offset_bottom = 507.0
+text = "Press Space again to skip"
+label_settings = SubResource("LabelSettings_lqbnl")

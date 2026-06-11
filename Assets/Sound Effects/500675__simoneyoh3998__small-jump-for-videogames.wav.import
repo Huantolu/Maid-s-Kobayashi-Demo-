@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://vnpo20w63kl7"
+path="res://.godot/imported/500675__simoneyoh3998__small-jump-for-videogames.wav-1771f2edac6209485c03300dbe9a9019.sample"
+
+[deps]
+
+source_file="res://Assets/Sound Effects/500675__simoneyoh3998__small-jump-for-videogames.wav"
+dest_files=["res://.godot/imported/500675__simoneyoh3998__small-jump-for-videogames.wav-1771f2edac6209485c03300dbe9a9019.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

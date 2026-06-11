@@ -23,7 +23,7 @@ func process_physics(delta: float) -> State:
 
 	if parent.velocity.y > 0:
 		return fall_state
-
+	
 	var movement = Input.get_axis("move_left", "move_right") * move_speed
 	if movement != 0:
 		var target_rotation = PI/3 if movement > 0 else -PI/3
@@ -35,10 +35,12 @@ func process_physics(delta: float) -> State:
 	parent.velocity.x = movement
 	if Input.is_action_just_pressed("jump") and parent.jumps_left > 0:
 		AudioController.play_jump()
-		parent.velocity.y = -jump_force
+		parent.velocity.y *= 1.2
 		parent.jumps_left -= 1
 		print("Total jumps: " + str(parent.jumps_left))
-	
+	if Input.is_action_just_released("jump"):
+		parent.velocity.y *= 0.5
+		return fall_state
 	parent.move_and_slide()
 	
 	if parent.is_on_floor():
