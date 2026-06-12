@@ -192,4 +192,6 @@ autoplay = &"fade_out"
 
 [node name="Start_sfx" type="AudioStreamPlayer2D" parent="." unique_id=1276916707]
 stream = ExtResource("3_vscbh")
+volume_db = -9.927
+max_distance = 22200.0
 bus = &"Sfx"

@@ -27,3 +27,9 @@ func _physics_process(delta: float) -> void:
 func _process(delta: float) -> void:
 	movement_state_machine.process_frame(delta)
 	attack_state_machine.process_frame(delta)
+
+func update_attack_hitbox():
+	if facing_direction == 1:
+		collision_hitbox.position.x = 45
+	else:
+		collision_hitbox.position.x = -45

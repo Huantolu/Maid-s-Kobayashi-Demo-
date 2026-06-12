@@ -23,6 +23,9 @@ script = ExtResource("1_b07c4")
 [node name="player" parent="." unique_id=2033633715 instance=ExtResource("2_b07c4")]
 position = Vector2(176, 885)
 
+[node name="collision_hitbox" parent="player/Hitbox" parent_id_path=PackedInt32Array(2033633715, 703470255) index="0" unique_id=105401018]
+position = Vector2(45, -51)
+
 [node name="Sprite2D" parent="player" index="2" unique_id=1676272654]
 texture = SubResource("ViewportTexture_b07c4")
 

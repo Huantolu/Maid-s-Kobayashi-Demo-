@@ -12,18 +12,18 @@ script = ExtResource("1_t0xn5")
 
 [node name="Jump" type="AudioStreamPlayer" parent="." unique_id=197486431]
 stream = ExtResource("2_yyma2")
-volume_db = -25.727
+volume_db = -26.037
 pitch_scale = 0.91
 bus = &"Sfx"
 
 [node name="Music_lvl_test" type="AudioStreamPlayer" parent="." unique_id=1229599020]
 stream = ExtResource("2_t0xn5")
-volume_db = -25.0
+volume_db = -80.0
+mix_target = 2
 bus = &"Music"
 
-[node name="Music_menu" type="AudioStreamPlayer2D" parent="." unique_id=381813479]
+[node name="Music_menu" type="AudioStreamPlayer" parent="." unique_id=522707309]
 stream = ExtResource("4_nqcbu")
-panning_strength = 0.0
 bus = &"Music"
 
 [node name="test_sound" type="AudioStreamPlayer2D" parent="." unique_id=1542383728]

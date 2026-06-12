@@ -6,7 +6,6 @@ var fall_state: State
 var idle_state: State
 @export
 var jump_state: State
-
 func enter() -> void:
 	print("Move state enter")
 
@@ -19,6 +18,12 @@ func process_physics(delta: float) -> State:
 	parent.velocity.y += gravity * delta
 
 	var movement = Input.get_axis("move_left", "move_right") * move_speed
+	if movement > 0:
+		parent.facing_direction = 1
+		parent.update_attack_hitbox()
+	elif movement < 0:
+		parent.facing_direction = -1
+		parent.update_attack_hitbox()
 
 	if movement != 0:
 		var target_rotation = PI/3 if movement > 0 else -PI/3

@@ -25,6 +25,12 @@ func process_physics(delta: float) -> State:
 		return fall_state
 	
 	var movement = Input.get_axis("move_left", "move_right") * move_speed
+	if movement > 0:
+		parent.facing_direction = 1
+		parent.update_attack_hitbox()
+	elif movement < 0:
+		parent.facing_direction = -1
+		parent.update_attack_hitbox()
 	if movement != 0:
 		var target_rotation = PI/3 if movement > 0 else -PI/3
 		parent.player_model.rotation.y = lerp_angle(

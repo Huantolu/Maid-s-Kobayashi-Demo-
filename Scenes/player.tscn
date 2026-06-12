@@ -26,8 +26,9 @@ script = ExtResource("1_3smsa")
 [node name="Hitbox" type="Area2D" parent="." unique_id=703470255]
 
 [node name="collision_hitbox" type="CollisionShape2D" parent="Hitbox" unique_id=105401018]
-position = Vector2(43, -51)
+position = Vector2(45, -51)
 shape = SubResource("RectangleShape2D_3smsa")
+disabled = true
 
 [node name="collision" type="CollisionShape2D" parent="." unique_id=1741350484]
 position = Vector2(1, -50)
