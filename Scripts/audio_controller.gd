@@ -2,30 +2,21 @@ extends Node
 
 @export var mute: bool = false
 
-func play_music_test() -> void:
-	if not mute:
-		$Music_lvl_test.play()
+var sounds := {}
 
-func stop_music_test() -> void:
-	$Music_lvl_test.stop()
+func _ready():
+	sounds = {
+		"jump": $Jump,
+		"punch": $Punch,
+		"music_menu": $Music_menu,
+		"music_lvl": $Music_lvl_test,
+		"test": $test_sound
+	}
 
-func test_sound() -> void:
-	if not mute:
-		$test_sound.play()
+func play_sound(sound_name: String):
+	if sounds.has(sound_name):
+		sounds[sound_name].play()
 
-func stop_test_sound() -> void:
-	$test_sound.stop()
-
-func play_music_menu() -> void:
-	if not mute:
-		$Music_menu.play()
-
-func stop_music_menu() -> void:
-	$Music_menu.stop()
-
-
-
-
-func play_jump() -> void:
-	if not mute:
-		$Jump.play()
+func stop_sound(sound_name: String):
+	if sounds.has(sound_name):
+		sounds[sound_name].stop()

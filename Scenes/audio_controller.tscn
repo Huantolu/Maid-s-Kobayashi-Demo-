@@ -6,30 +6,40 @@
 [ext_resource type="AudioStream" uid="uid://3g1i34p3bj20" path="res://Assets/Music/what's that smell (sugary spire).mp3" id="4_nqcbu"]
 [ext_resource type="AudioStream" uid="uid://cdh2ticfeqd5h" path="res://Assets/Sound Effects/Retro 8 bit SFX Pack/344314__musiclegends__powerup24.wav" id="5_ual3u"]
 [ext_resource type="AudioStream" uid="uid://b4ocag1oxyuub" path="res://Assets/Sound Effects/talksound.ogg" id="6_yyma2"]
+[ext_resource type="AudioStream" uid="uid://kxx0y0sxxfrn" path="res://Assets/Sound Effects/490769__steveuk87__punch-2-heavy.ogg" id="7_y4nv4"]
 
 [node name="AudioController" type="Node" unique_id=53321031]
 script = ExtResource("1_t0xn5")
 
-[node name="Jump" type="AudioStreamPlayer" parent="." unique_id=197486431]
-stream = ExtResource("2_yyma2")
-volume_db = -26.037
-pitch_scale = 0.91
-bus = &"Sfx"
+[node name="Music" type="Node" parent="." unique_id=2094341803]
 
-[node name="Music_lvl_test" type="AudioStreamPlayer" parent="." unique_id=1229599020]
+[node name="Music_menu" type="AudioStreamPlayer" parent="Music" unique_id=522707309]
+stream = ExtResource("4_nqcbu")
+bus = &"Music"
+
+[node name="Music_lvl_test" type="AudioStreamPlayer" parent="Music" unique_id=1229599020]
 stream = ExtResource("2_t0xn5")
 volume_db = -80.0
 mix_target = 2
 bus = &"Music"
 
-[node name="Music_menu" type="AudioStreamPlayer" parent="." unique_id=522707309]
-stream = ExtResource("4_nqcbu")
-bus = &"Music"
+[node name="Sfx" type="Node" parent="." unique_id=1352491733]
 
-[node name="test_sound" type="AudioStreamPlayer2D" parent="." unique_id=1542383728]
+[node name="Jump" type="AudioStreamPlayer" parent="Sfx" unique_id=197486431]
+stream = ExtResource("2_yyma2")
+volume_db = -26.037
+pitch_scale = 0.91
+bus = &"Sfx"
+
+[node name="test_sound" type="AudioStreamPlayer" parent="Sfx" unique_id=1501590875]
 stream = ExtResource("5_ual3u")
 bus = &"Sfx"
 
-[node name="talk_test" type="AudioStreamPlayer2D" parent="." unique_id=735363877]
+[node name="talk_test" type="AudioStreamPlayer" parent="Sfx" unique_id=634723585]
 stream = ExtResource("6_yyma2")
+bus = &"Sfx"
+
+[node name="Punch" type="AudioStreamPlayer" parent="Sfx" unique_id=1258681593]
+stream = ExtResource("7_y4nv4")
+pitch_scale = 1.21
 bus = &"Sfx"

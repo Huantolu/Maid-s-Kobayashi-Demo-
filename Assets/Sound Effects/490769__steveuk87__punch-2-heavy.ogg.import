@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://kxx0y0sxxfrn"
+path="res://.godot/imported/490769__steveuk87__punch-2-heavy.ogg-3d590971781ee6b6ed104f76c6170db6.oggvorbisstr"
+
+[deps]
+
+source_file="res://Assets/Sound Effects/490769__steveuk87__punch-2-heavy.ogg"
+dest_files=["res://.godot/imported/490769__steveuk87__punch-2-heavy.ogg-3d590971781ee6b6ed104f76c6170db6.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0.03
+bpm=0.0
+beat_count=0
+bar_beats=4
