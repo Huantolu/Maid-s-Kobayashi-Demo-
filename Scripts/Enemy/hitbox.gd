@@ -1,4 +1,4 @@
 extends Area2D
 
 func _ready():
-	add_to_group("player_attack")
+	add_to_group("enemy_hitbox")

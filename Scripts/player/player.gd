@@ -6,6 +6,10 @@ extends CharacterBody2D
 @onready var movement_state_machine: Node = $movement_state_machine
 @onready var attack_state_machine: Node = $attack_state_machine
 @onready var collision_hitbox: CollisionShape2D = $Hitbox/collision_hitbox
+@onready var hurtbox: Area2D = $Hurtbox
+@onready var camera_2d: Camera2D = $Camera2D
+
+
 
 @export var rotation_speed = 10.0
 @onready var player_model: Node3D = $SubViewport/Sophia_Model
@@ -23,7 +27,18 @@ var is_dead: bool:
 		_is_dead = value
 
 		if _is_dead:
-			await get_tree().create_timer(3).timeout
+			AudioController.stop_music()
+			AudioController.play_sound("player_hurt")
+			camera_2d.screen_shake(15, 0.3)
+
+			await get_tree().create_timer(1.5).timeout
+
+			AudioController.play_sound("player_death")
+
+			Engine.time_scale = 0.5
+			camera_2d.screen_shake(25, 1.5)
+			await get_tree().create_timer(1.5, true).timeout
+			Engine.time_scale = 1.0
 			get_tree().reload_current_scene()
 
 	get:
@@ -32,12 +47,28 @@ var is_dead: bool:
 func _ready() -> void:
 	movement_state_machine.init(self)
 	attack_state_machine.init(self)
+	
+	hurtbox.area_entered.connect(_on_hurtbox_area_entered)
+
+func die():
+	if is_dead:
+		return
+
+	is_dead = true
+	set_physics_process(false)
+
+	print("Jugador muerto")
+
 
 func _unhandled_input(event: InputEvent) -> void:
 	movement_state_machine.process_input(event)
 	attack_state_machine.process_input(event)
 
 func _physics_process(delta: float) -> void:
+	if is_dead:
+		velocity = Vector2.ZERO
+		move_and_slide()
+		return
 	movement_state_machine.process_physics(delta)
 	attack_state_machine.process_physics(delta)
 
@@ -50,3 +81,9 @@ func update_attack_hitbox():
 		collision_hitbox.position.x = 45
 	else:
 		collision_hitbox.position.x = -45
+
+
+
+func _on_hurtbox_area_entered(area: Area2D) -> void:
+	if area.is_in_group("enemy_hitbox"):
+		die()

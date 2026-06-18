@@ -10,7 +10,9 @@ func _ready():
 	sfx = {
 		"jump": $Sfx/Jump,
 		"punch": $Sfx/Punch,
-		"test": $Sfx/test_sound
+		"test": $Sfx/test_sound,
+		"player_hurt": $Sfx/PlayerHurt,
+		"player_death": $Sfx/PlayerDeath
 	}
 
 	music = {

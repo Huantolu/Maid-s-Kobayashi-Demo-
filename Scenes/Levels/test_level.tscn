@@ -33,10 +33,6 @@ jump_force = 400.0
 [node name="attack" parent="player/attack_state_machine" parent_id_path=PackedInt32Array(2033633715, 1379061487) index="1" unique_id=723437132 node_paths=PackedStringArray("idle_state")]
 idle_state = NodePath("../idle")
 
-[node name="Camera2D" type="Camera2D" parent="player" unique_id=493890255]
-position = Vector2(0, -72)
-zoom = Vector2(2.5, 2.5)
-
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1390569982]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1132179390]
@@ -56,5 +52,17 @@ position = Vector2(285, 825)
 
 [node name="test_gutter_enemy2" parent="." unique_id=29731309 instance=ExtResource("3_2ytpj")]
 position = Vector2(977, 843)
+
+[node name="test_gutter_enemy3" parent="." unique_id=791848398 instance=ExtResource("3_2ytpj")]
+position = Vector2(1523, 879)
+
+[node name="test_gutter_enemy4" parent="." unique_id=612126289 instance=ExtResource("3_2ytpj")]
+position = Vector2(707, 874)
+
+[node name="test_gutter_enemy5" parent="." unique_id=922500725 instance=ExtResource("3_2ytpj")]
+position = Vector2(564, 807)
+
+[node name="test_gutter_enemy6" parent="." unique_id=1620657096 instance=ExtResource("3_2ytpj")]
+position = Vector2(1269, 886)
 
 [editable path="player"]

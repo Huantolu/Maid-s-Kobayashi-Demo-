@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://v627ichvppg5"
+path="res://.godot/imported/362423__alphatrooper18__explosion1.wav-26dc74b3145bd91618583f09969e733e.sample"
+
+[deps]
+
+source_file="res://Assets/Sound Effects/362423__alphatrooper18__explosion1.wav"
+dest_files=["res://.godot/imported/362423__alphatrooper18__explosion1.wav-26dc74b3145bd91618583f09969e733e.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

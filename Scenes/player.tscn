@@ -3,7 +3,6 @@
 [ext_resource type="Script" uid="uid://dr2lawefte1os" path="res://Scripts/player/player.gd" id="1_3smsa"]
 [ext_resource type="PackedScene" uid="uid://bsgtr5x44hma2" path="res://Scenes/state_machine.tscn" id="1_v0iea"]
 [ext_resource type="PackedScene" uid="uid://t8jniafjswyu" path="res://3D_Models/Sophia/Sophia_Model.fbx" id="2_3smsa"]
-[ext_resource type="Script" uid="uid://co2b7wghkkihg" path="res://Scripts/hurtbox.gd" id="2_gymyn"]
 [ext_resource type="Script" uid="uid://bgf7y43ffk1t1" path="res://Scripts/player/hitbox.gd" id="2_pu2lt"]
 [ext_resource type="Script" uid="uid://cfenjjivd2kti" path="res://Scripts/player/states/idle.gd" id="3_x3wgy"]
 [ext_resource type="Script" uid="uid://bfjc20tg53pbo" path="res://Scripts/player/states/jump.gd" id="4_3smsa"]
@@ -12,6 +11,7 @@
 [ext_resource type="Script" uid="uid://bpc0j3hy32ggb" path="res://Scripts/state_machine/attack_state_machine/attack_state_machine.gd" id="8_8erm5"]
 [ext_resource type="Script" uid="uid://88h32guoxi8n" path="res://Scripts/state_machine/attack_state_machine/idle.gd" id="9_f1ek2"]
 [ext_resource type="Script" uid="uid://dhphcnju2oqqi" path="res://Scripts/state_machine/attack_state_machine/attack.gd" id="10_tx1dd"]
+[ext_resource type="Script" uid="uid://d0wb3qjytq0bv" path="res://Scripts/player/camera_shake.gd" id="12_pu2lt"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3smsa"]
 size = Vector2(20, 78.5)
@@ -27,9 +27,12 @@ radius = 6.0
 height = 72.0
 
 [node name="player" type="CharacterBody2D" unique_id=2033633715]
+collision_mask = 9
 script = ExtResource("1_3smsa")
 
 [node name="Hitbox" type="Area2D" parent="." unique_id=703470255]
+collision_layer = 4
+collision_mask = 32
 script = ExtResource("2_pu2lt")
 
 [node name="collision_hitbox" type="CollisionShape2D" parent="Hitbox" unique_id=105401018]
@@ -47,7 +50,8 @@ scale = Vector2(0.09434573, 0.09434573)
 texture = SubResource("ViewportTexture_f1ek2")
 
 [node name="Hurtbox" type="Area2D" parent="." unique_id=1680993809]
-script = ExtResource("2_gymyn")
+collision_layer = 32
+collision_mask = 128
 
 [node name="collision_hurtbox" type="CollisionShape2D" parent="Hurtbox" unique_id=1669722552]
 position = Vector2(2, -45)
@@ -110,5 +114,10 @@ attack_state = NodePath("../attack")
 script = ExtResource("10_tx1dd")
 idle_state = NodePath(".")
 
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1687298350]
+position = Vector2(0, -72)
+zoom = Vector2(2.5, 2.5)
+script = ExtResource("12_pu2lt")
+
 [connection signal="body_entered" from="Hitbox" to="Hitbox" method="_on_body_entered"]
-[connection signal="body_entered" from="Hurtbox" to="Hurtbox" method="_on_body_entered"]
+[connection signal="area_entered" from="Hurtbox" to="." method="_on_hurtbox_area_entered"]
