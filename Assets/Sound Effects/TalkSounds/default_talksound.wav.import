@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://bhw3vyds4oxl1"
+path="res://.godot/imported/default_talksound.wav-c02d75e259e6590412f176cbc7198c73.sample"
+
+[deps]
+
+source_file="res://Assets/Sound Effects/TalkSounds/default_talksound.wav"
+dest_files=["res://.godot/imported/default_talksound.wav-c02d75e259e6590412f176cbc7198c73.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

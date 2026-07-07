@@ -13,7 +13,7 @@ var jump_force: float = 900.0
 
 
 
-func enter() -> void:
+func enter():
 	print("Jump state enter")
 	
 	parent.velocity.y = -jump_force

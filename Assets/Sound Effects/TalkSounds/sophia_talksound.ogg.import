@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://dxvs5dt3oea2a"
+path="res://.godot/imported/sophia_talksound.ogg-90e3410048b00ece2c6426f3562491e5.oggvorbisstr"
+
+[deps]
+
+source_file="res://Assets/Sound Effects/TalkSounds/sophia_talksound.ogg"
+dest_files=["res://.godot/imported/sophia_talksound.ogg-90e3410048b00ece2c6426f3562491e5.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

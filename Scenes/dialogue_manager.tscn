@@ -1,44 +1,73 @@
 [gd_scene format=3 uid="uid://dwvymlw14qpdi"]
 
 [ext_resource type="Script" uid="uid://dkrnmsgujaxvy" path="res://Scripts/dialogue_box.gd" id="1_atyk4"]
-[ext_resource type="Script" uid="uid://c7rjc4iwe3mnu" path="res://Scripts/dialogue_manager.gd" id="2_s3xy2"]
+[ext_resource type="FontFile" uid="uid://htx0b624ho05" path="res://Fonts/VCR_OSD_MONO_1.001.ttf" id="2_s3xy2"]
 
-[node name="dialogue_box" type="CanvasLayer" unique_id=1677718973]
+[sub_resource type="LabelSettings" id="LabelSettings_vdh8g"]
+font = ExtResource("2_s3xy2")
+font_size = 75
+
+[node name="DialogueSystem" type="Control" unique_id=518797811 node_paths=PackedStringArray("char_text", "char_name")]
+layout_mode = 3
+anchors_preset = 0
 script = ExtResource("1_atyk4")
+jsonsrc = "res://Scripts/Json_dialogues/test.json"
+char_text = NodePath("Base/BG/Text")
+char_name = NodePath("Base/BG/Name")
+letter_speed = null
+comma_pause = null
+dot_pause = null
+exclamation_pause = null
 
-[node name="DialogueManager" type="Node" parent="." unique_id=607160327]
-script = ExtResource("2_s3xy2")
+[node name="Base" type="CanvasLayer" parent="." unique_id=2104886626]
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=2028171577]
+[node name="background" type="ColorRect" parent="Base" unique_id=1050710157]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0.42473057, 0.9353433, 1)
 
-[node name="Panel" type="Panel" parent="." unique_id=1915150623]
-modulate = Color(0.9529412, 0, 0.6039216, 1)
-offset_left = 153.0
-offset_top = 97.0
-offset_right = 951.0
-offset_bottom = 246.0
-
-[node name="CharName" type="Label" parent="Panel" unique_id=2054405898]
-layout_mode = 0
-offset_top = -23.0
-offset_right = 40.0
-
-[node name="Portrait" type="TextureRect" parent="Panel" unique_id=1530433003]
-layout_mode = 0
+[node name="character" type="TextureRect" parent="Base" unique_id=83509959]
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="DialogueTexst" type="RichTextLabel" parent="Panel" unique_id=908432715]
-layout_mode = 1
+[node name="AnimationTree" type="AnimationTree" parent="Base/character" unique_id=2120353330]
+
+[node name="BG" type="ColorRect" parent="Base" unique_id=171660649]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -288.0
-offset_top = 6.5
-offset_right = 485.0
-offset_bottom = 134.5
+offset_left = -938.0
+offset_top = 287.0
+offset_right = 938.0
+offset_bottom = 521.00085
 grow_horizontal = 2
 grow_vertical = 2
+color = Color(0, 0, 0, 0.59607846)
+
+[node name="Name" type="Label" parent="Base/BG" unique_id=1143749663]
+layout_mode = 0
+offset_top = -62.0
+offset_right = 176.0
+offset_bottom = 4.0
+text = "Name"
+label_settings = SubResource("LabelSettings_vdh8g")
+
+[node name="Text" type="RichTextLabel" parent="Base/BG" unique_id=1929116036]
+layout_mode = 0
+offset_right = 1876.0
+offset_bottom = 227.0
+theme_override_fonts/normal_font = ExtResource("2_s3xy2")
+theme_override_font_sizes/normal_font_size = 55
 bbcode_enabled = true
+text = "sup"
+fit_content = true
+
+[node name="Timer" type="Timer" parent="Base/BG" unique_id=1640660107]
+wait_time = 5.0
+
+[connection signal="timeout" from="Base/BG/Timer" to="." method="_on_timer_timeout"]

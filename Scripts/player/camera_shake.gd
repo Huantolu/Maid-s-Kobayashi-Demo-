@@ -1,34 +1,28 @@
-extends Camera2D
+class_name PlayerCamera extends Camera2D
 
-var shake_intensity: float = 0.0
-var active_shake_time: float = 0.0
 
-var shake_decay: float = 5.0
+@export_range(0, 1, 0.05, "or_greator") var shake_power: float = 0.5 # Overall Strengtk of shake
+@export var shake_max_offset: float = 5.0 # Maximun shake in pixels
+@export var shake_decay: float = 1.0 # How quicly the shake stops
+var shake_trauma: float = 0.0
 
-var shake_time: float = 0.0
-var shake_time_speed: float = 20.0
 
-var noise = FastNoiseLite.new()
+func _ready() -> void:
+	PlayerManager.camera_shook.connect( add_camera_shake )
 
 func _physics_process(delta: float) -> void:
-	if active_shake_time > 0:
-		shake_time += delta * shake_time_speed
-		active_shake_time -= delta
-		
-		offset = Vector2(
-			noise.get_noise_2d(shake_time, 0) * shake_intensity,
-			noise.get_noise_2d(0, shake_time) * shake_intensity
-		)
-		
-		shake_intensity = max(shake_intensity - shake_decay * delta, 0)
-	else:
-		offset = lerp(offset, Vector2.ZERO, 30.5 * delta)
+	if shake_trauma > 0:
+		shake_trauma = max( shake_trauma - shake_decay * delta, 0)
+		shake()
 
-func screen_shake(intensity: int, time: float):
-	randomize()
-	noise.seed = randi()
-	noise.frequency = 2.0
-	
-	shake_intensity = intensity
-	active_shake_time = time
-	shake_time = 0.0
+
+
+func add_camera_shake(intensity: float, duration: float = 0.5) -> void:
+	shake_trauma = clamp(shake_trauma + intensity, 0.0, 1.0)
+	if duration > 0.0:
+		shake_decay = 1.0 / duration
+
+
+func shake() -> void:
+	var ammount : float = pow( shake_trauma * shake_power, 2)
+	offset = Vector2( randf_range(-1, 1), randf_range(-1, 1) * shake_max_offset * ammount)

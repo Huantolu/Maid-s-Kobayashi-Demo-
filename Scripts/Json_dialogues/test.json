@@ -6,8 +6,8 @@
 		["WELL Hello hello! My dear characters! How are we feeling today?", ""],
 		["_skip"],
 		["!!!", "Sophia"],
-		["_skip"],
-		["Who the-!?", "Ib4m"],
+		["[shake rate=50.0 level=9 connected=1]Who the-!?[/shake]", "Ib4m"],
+		["playMusic", "menu_music", -5],
 		["Sorry ´bout the sudden appearance, but this is just for testing.", ""],
 		["You two are here just for our primary testing on dialogue system!", ""],
 		["...", "Sophia"],
@@ -46,6 +46,6 @@
 		["You are gay now", "Kazze"],
 		["...Why?", "Sophia"],
 		["Pride month.", "Kazze"],
-		["... [rainbow freq=1.0 sat=0.8 val=0.8 speed=1.0]fair I guess...[/rainbow]", "Sophia"],
+		["...[rainbow freq=1.0 sat=0.8 val=0.8 speed=1.0]fair I guess...[/rainbow]", "Sophia"],
 	]
 }

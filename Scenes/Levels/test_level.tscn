@@ -2,10 +2,9 @@
 
 [ext_resource type="Script" uid="uid://b1taedhr4oysk" path="res://test_level.gd" id="1_b07c4"]
 [ext_resource type="PackedScene" uid="uid://di4b3fet5cvsw" path="res://Scenes/player.tscn" id="2_b07c4"]
-[ext_resource type="PackedScene" uid="uid://cjab5y5fghro" path="res://Scenes/Enemies/enemy_gutter_test.tscn" id="3_2ytpj"]
-
-[sub_resource type="ViewportTexture" id="ViewportTexture_2ytpj"]
-viewport_path = NodePath("SubViewport")
+[ext_resource type="PackedScene" uid="uid://cjab5y5fghro" path="res://Scenes/Enemies/enemy_thingi.tscn" id="3_2ytpj"]
+[ext_resource type="PackedScene" uid="uid://rnmh4stoko56" path="res://Scenes/Enemies/enemy_fast.tscn" id="4_db73o"]
+[ext_resource type="PackedScene" uid="uid://ibk8nt6gpkwx" path="res://Scenes/Enemies/enemy_shooter.tscn" id="5_npfmg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_b07c4"]
 size = Vector2(2005, 167)
@@ -14,24 +13,18 @@ size = Vector2(2005, 167)
 size = Vector2(132, 712.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_db73o"]
-size = Vector2(344.5, 53)
+size = Vector2(344.25, 53)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_k8g1k"]
+size = Vector2(160, 30.90802)
 
 [node name="test_room" type="Node2D" unique_id=81383323]
+scale = Vector2(1.0030484, 1.0059413)
 script = ExtResource("1_b07c4")
 
-[node name="UI" type="CanvasLayer" parent="." unique_id=1778156251]
-
 [node name="player" parent="." unique_id=2033633715 instance=ExtResource("2_b07c4")]
-position = Vector2(176, 885)
-
-[node name="Sprite2D" parent="player" index="2" unique_id=1676272654]
-texture = SubResource("ViewportTexture_2ytpj")
-
-[node name="jump" parent="player/movement_state_machine" parent_id_path=PackedInt32Array(2033633715, 286087432) index="1" unique_id=1266890664]
-jump_force = 400.0
-
-[node name="attack" parent="player/attack_state_machine" parent_id_path=PackedInt32Array(2033633715, 1379061487) index="1" unique_id=723437132 node_paths=PackedStringArray("idle_state")]
-idle_state = NodePath("../idle")
+position = Vector2(225.31311, 862.87354)
+scale = Vector2(1, 0.9999998)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1390569982]
 
@@ -47,22 +40,29 @@ shape = SubResource("RectangleShape2D_2ytpj")
 position = Vector2(973.75, 883.5)
 shape = SubResource("RectangleShape2D_db73o")
 
-[node name="test_gutter_enemy" parent="." unique_id=790157198 instance=ExtResource("3_2ytpj")]
-position = Vector2(285, 825)
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D" unique_id=886983185]
+position = Vector2(1832.875, 883.5)
+shape = SubResource("RectangleShape2D_db73o")
 
-[node name="test_gutter_enemy2" parent="." unique_id=29731309 instance=ExtResource("3_2ytpj")]
-position = Vector2(977, 843)
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="StaticBody2D" unique_id=103893782]
+position = Vector2(1924.9995, 841.54596)
+scale = Vector2(1, 0.9999998)
+shape = SubResource("RectangleShape2D_k8g1k")
 
-[node name="test_gutter_enemy3" parent="." unique_id=791848398 instance=ExtResource("3_2ytpj")]
-position = Vector2(1523, 879)
+[node name="Enemie Folder" type="Node2D" parent="." unique_id=426270935]
 
-[node name="test_gutter_enemy4" parent="." unique_id=612126289 instance=ExtResource("3_2ytpj")]
-position = Vector2(707, 874)
+[node name="Enemy_Thingy" parent="Enemie Folder" unique_id=790157198 instance=ExtResource("3_2ytpj")]
+position = Vector2(1636.9999, 909.99994)
+scale = Vector2(1, 0.99999994)
 
-[node name="test_gutter_enemy5" parent="." unique_id=922500725 instance=ExtResource("3_2ytpj")]
-position = Vector2(564, 807)
+[node name="Enemy_Thingy2" parent="Enemie Folder" unique_id=512595461 instance=ExtResource("3_2ytpj")]
+position = Vector2(1471, 907.99994)
+scale = Vector2(1, 0.99999994)
 
-[node name="test_gutter_enemy6" parent="." unique_id=1620657096 instance=ExtResource("3_2ytpj")]
-position = Vector2(1269, 886)
+[node name="enemy_fast" parent="Enemie Folder" unique_id=1830024852 instance=ExtResource("4_db73o")]
+position = Vector2(748.7176, 888.71985)
+scale = Vector2(1, 0.99999994)
 
-[editable path="player"]
+[node name="enemy_shooter" parent="Enemie Folder" unique_id=1219362557 instance=ExtResource("5_npfmg")]
+position = Vector2(1923.1376, 817.1451)
+scale = Vector2(0.92873853, 0.9287386)

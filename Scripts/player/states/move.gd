@@ -6,7 +6,7 @@ var fall_state: State
 var idle_state: State
 @export
 var jump_state: State
-func enter() -> void:
+func enter():
 	print("Move state enter")
 
 func process_input(event: InputEvent) -> State:

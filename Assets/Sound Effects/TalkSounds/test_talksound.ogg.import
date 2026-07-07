@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://b4ocag1oxyuub"
+path="res://.godot/imported/test_talksound.ogg-1dfeccf04ea7b4d608a3bb2ed8be2496.oggvorbisstr"
+
+[deps]
+
+source_file="res://Assets/Sound Effects/TalkSounds/test_talksound.ogg"
+dest_files=["res://.godot/imported/test_talksound.ogg-1dfeccf04ea7b4d608a3bb2ed8be2496.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

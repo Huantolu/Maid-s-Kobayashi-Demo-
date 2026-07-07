@@ -6,6 +6,7 @@ var timer := 0.0
 
 func enter() -> void:
 	# activa la hitbox que esta dentro del juador
+	AudioController.play_sound("punch")
 	parent.collision_hitbox.set_deferred("disabled", false)
 	timer = 0.1
 	print("punch state!")

@@ -1,0 +1,57 @@
+[gd_scene format=3 uid="uid://c2w5v0g1pd5b3"]
+
+[ext_resource type="Script" uid="uid://cqxxcbtv4v60b" path="res://Scripts/player/arm_manager/arms/sword_arm.gd" id="1_nct8w"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_unxxp"]
+size = Vector2(60, 142)
+
+[sub_resource type="Animation" id="Animation_aatmv"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CollisionShape2D:disabled")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_7llk7"]
+resource_name = "sword_swing"
+length = 0.29
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CollisionShape2D:disabled")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.06666666, 0.26666668),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, false, true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_bwigv"]
+_data = {
+&"RESET": SubResource("Animation_aatmv"),
+&"sword_swing": SubResource("Animation_7llk7")
+}
+
+[node name="Sword_Arm" type="Area2D" unique_id=2130745562]
+collision_layer = 4
+collision_mask = 32
+script = ExtResource("1_nct8w")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1266600007]
+shape = SubResource("RectangleShape2D_unxxp")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=649889959]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1229630526]
+libraries/ = SubResource("AnimationLibrary_bwigv")

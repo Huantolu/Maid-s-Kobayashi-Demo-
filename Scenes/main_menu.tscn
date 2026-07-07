@@ -2,168 +2,106 @@
 
 [ext_resource type="FontFile" uid="uid://htx0b624ho05" path="res://Fonts/VCR_OSD_MONO_1.001.ttf" id="1_28flt"]
 [ext_resource type="Script" uid="uid://sr2uc4dbameq" path="res://Scripts/main_menu.gd" id="1_48xlc"]
+[ext_resource type="Texture2D" uid="uid://crevckpo5q007" path="res://Assets/Sprites/fondo morado.png" id="2_1ehe0"]
+[ext_resource type="PackedScene" uid="uid://oo71w6u63cyo" path="res://Scenes/options_menu.tscn" id="4_ce3w2"]
 
-[sub_resource type="LabelSettings" id="LabelSettings_erv1k"]
-font = ExtResource("1_28flt")
-font_size = 150
+[sub_resource type="FontVariation" id="FontVariation_48xlc"]
+base_font = ExtResource("1_28flt")
 
-[sub_resource type="Theme" id="Theme_48xlc"]
-
-[sub_resource type="ButtonGroup" id="ButtonGroup_1ehe0"]
-
-[sub_resource type="LabelSettings" id="LabelSettings_ce3w2"]
-font = ExtResource("1_28flt")
-font_size = 40
-
-[node name="MainMenu" type="Node2D" unique_id=1847352958]
-script = ExtResource("1_48xlc")
-
-[node name="Title" type="Label" parent="." unique_id=1674726389]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = 239.0
-offset_top = -20.0
-offset_right = 1733.0
-offset_bottom = 247.0
+[node name="Control" type="Control" unique_id=723497809]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-size_flags_horizontal = 4
-text = "maid's kobayashi 
-(demo)"
-label_settings = SubResource("LabelSettings_erv1k")
+script = ExtResource("1_48xlc")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=2030393018]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_1ehe0")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1440449764]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 12
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=398677728]
+layout_mode = 2
+theme_override_constants/separation = 120
+
+[node name="Separator" type="Control" parent="MarginContainer/VBoxContainer" unique_id=1929940160]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer" unique_id=688986549]
+layout_mode = 2
+theme_override_constants/outline_size = 24
+theme_override_fonts/font = SubResource("FontVariation_48xlc")
+theme_override_font_sizes/font_size = 84
+text = "maid's kobayashi
+(demo 1.0)"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="CenterContainer" type="CenterContainer" parent="." unique_id=1423070521]
-offset_top = 44.0
-offset_right = 1952.0
-offset_bottom = 1154.0
-theme = SubResource("Theme_48xlc")
-
-[node name="MainButtons" type="VBoxContainer" parent="CenterContainer" unique_id=1160634604]
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer" unique_id=872578975]
 layout_mode = 2
-theme_override_constants/separation = 16
+alignment = 1
 
-[node name="play" type="Button" parent="CenterContainer/MainButtons" unique_id=1769137466]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer" unique_id=2026763171]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("1_28flt")
-theme_override_font_sizes/font_size = 75
-text = "PLAY"
+theme_override_constants/separation = 15
+alignment = 1
 
-[node name="settings" type="Button" parent="CenterContainer/MainButtons" unique_id=1256305875]
+[node name="Separator" type="Control" parent="MarginContainer/HBoxContainer/VBoxContainer" unique_id=1727397347]
+layout_mode = 2
+
+[node name="Start_Button" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer" unique_id=101865060]
+custom_minimum_size = Vector2(120, 32)
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_28flt")
-theme_override_font_sizes/font_size = 75
-text = "SETTINGS"
+theme_override_font_sizes/font_size = 67
+text = "Start Game"
 
-[node name="credits" type="Button" parent="CenterContainer/MainButtons" unique_id=674950647]
+[node name="Options_Button" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer" unique_id=618361224]
+custom_minimum_size = Vector2(120, 32)
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_28flt")
-theme_override_font_sizes/font_size = 75
-text = "CREDITS"
+theme_override_font_sizes/font_size = 67
+text = "Options"
 
-[node name="quit" type="Button" parent="CenterContainer/MainButtons" unique_id=872611393]
+[node name="Credits_Button" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer" unique_id=350476828]
+custom_minimum_size = Vector2(120, 32)
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_28flt")
-theme_override_font_sizes/font_size = 75
-text = "QUIT"
+theme_override_font_sizes/font_size = 67
+text = "Credits"
 
-[node name="SettingsMenu" type="VBoxContainer" parent="CenterContainer" unique_id=1611631892]
+[node name="Extras_Button" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer" unique_id=520612551]
+custom_minimum_size = Vector2(120, 32)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_28flt")
+theme_override_font_sizes/font_size = 67
+text = "Extras"
+
+[node name="Exit_Button" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer" unique_id=1348736676]
+custom_minimum_size = Vector2(120, 32)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_28flt")
+theme_override_font_sizes/font_size = 67
+text = "Exit"
+
+[node name="Options_Menu" parent="." unique_id=1206036651 instance=ExtResource("4_ce3w2")]
 visible = false
-layout_mode = 2
-theme_override_constants/separation = 16
-
-[node name="fullscreen" type="CheckBox" parent="CenterContainer/SettingsMenu" unique_id=532926537]
-layout_mode = 2
-theme_override_fonts/font = ExtResource("1_28flt")
-theme_override_font_sizes/font_size = 75
-action_mode = 0
-button_group = SubResource("ButtonGroup_1ehe0")
-text = "FULLSCREEN"
-
-[node name="mainvoslider" type="HSlider" parent="CenterContainer/SettingsMenu" unique_id=603213244]
-custom_minimum_size = Vector2(0, 80)
-layout_mode = 2
-max_value = 1.0
-step = 0.001
-
-[node name="Label" type="Label" parent="CenterContainer/SettingsMenu/mainvoslider" unique_id=1065076755]
-custom_minimum_size = Vector2(484, 55)
-layout_mode = 0
-offset_left = -16.0
-offset_right = 468.0
-offset_bottom = 55.0
-text = "MASTER VOLUME"
-label_settings = SubResource("LabelSettings_ce3w2")
-horizontal_alignment = 1
-
-[node name="musicvoslider" type="HSlider" parent="CenterContainer/SettingsMenu" unique_id=1019018181]
-custom_minimum_size = Vector2(0, 80)
-layout_mode = 2
-max_value = 1.0
-step = 0.001
-
-[node name="Label" type="Label" parent="CenterContainer/SettingsMenu/musicvoslider" unique_id=1276871317]
-custom_minimum_size = Vector2(484, 55)
-layout_mode = 0
-offset_left = -16.0
-offset_right = 468.0
-offset_bottom = 55.0
-text = "MUSIC VOLUME"
-label_settings = SubResource("LabelSettings_ce3w2")
-horizontal_alignment = 1
-
-[node name="sfxvoslider" type="HSlider" parent="CenterContainer/SettingsMenu" unique_id=1642945999]
-custom_minimum_size = Vector2(0, 80)
-layout_mode = 2
-max_value = 1.0
-step = 0.001
-
-[node name="Label" type="Label" parent="CenterContainer/SettingsMenu/sfxvoslider" unique_id=679555086]
-custom_minimum_size = Vector2(484, 55)
-layout_mode = 0
-offset_left = -16.0
-offset_right = 468.0
-offset_bottom = 55.0
-text = "SFX VOLUME"
-label_settings = SubResource("LabelSettings_ce3w2")
-horizontal_alignment = 1
-
-[node name="back" type="Button" parent="CenterContainer/SettingsMenu" unique_id=1460467291]
-custom_minimum_size = Vector2(353, 0)
-layout_mode = 2
-size_flags_horizontal = 4
-theme_override_fonts/font = ExtResource("1_28flt")
-theme_override_font_sizes/font_size = 75
-text = "GO BACK"
-
-[node name="ColorRect" type="ColorRect" parent="." unique_id=622896352]
-z_index = -4096
-offset_top = -58.0
-offset_right = 1948.0
-offset_bottom = 1157.0
-mouse_filter = 2
-color = Color(1, 0.39215687, 0.38431373, 1)
-
-[node name="test_sound" type="Button" parent="." unique_id=328017584]
-offset_left = 1590.0
-offset_top = 995.0
-offset_right = 1891.0
-offset_bottom = 1047.0
-theme_override_fonts/font = ExtResource("1_28flt")
-theme_override_font_sizes/font_size = 50
-text = "TEST SOUND"
-
-[connection signal="pressed" from="CenterContainer/MainButtons/play" to="." method="_on_play_pressed"]
-[connection signal="pressed" from="CenterContainer/MainButtons/settings" to="." method="_on_settings_pressed"]
-[connection signal="pressed" from="CenterContainer/MainButtons/credits" to="." method="_on_credits_pressed"]
-[connection signal="pressed" from="CenterContainer/MainButtons/quit" to="." method="_on_quit_pressed"]
-[connection signal="toggled" from="CenterContainer/SettingsMenu/fullscreen" to="." method="_on_fullscreen_toggled"]
-[connection signal="value_changed" from="CenterContainer/SettingsMenu/mainvoslider" to="." method="_on_mainvoslider_value_changed"]
-[connection signal="value_changed" from="CenterContainer/SettingsMenu/musicvoslider" to="." method="_on_musicvoslider_value_changed"]
-[connection signal="value_changed" from="CenterContainer/SettingsMenu/sfxvoslider" to="." method="_on_sfxvoslider_value_changed"]
-[connection signal="pressed" from="CenterContainer/SettingsMenu/back" to="." method="_on_back_pressed"]
-[connection signal="pressed" from="test_sound" to="." method="_on_test_sound_pressed"]
+layout_mode = 1

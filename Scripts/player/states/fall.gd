@@ -7,7 +7,7 @@ var move_state: State
 @export
 var jump_state: State
 
-func enter() -> void:
+func enter():
 	print("Fall state enter")
 
 func process_physics(delta: float) -> State:
